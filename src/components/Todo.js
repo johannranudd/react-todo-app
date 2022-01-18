@@ -70,7 +70,7 @@ const Todo = () => {
 
   return (
     <StyledDiv>
-      <section className='section-center'>
+      <section className='wrapper'>
         {alert.show && <Alert {...alert} showAlert={showAlert} list={list} />}
         <h2>Todo App</h2>
         <form action='' onSubmit={handleSubmit}>
@@ -79,7 +79,9 @@ const Todo = () => {
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
           />
-          <button type='submit'>{editFlag ? 'Edit' : 'Submit'}</button>
+          <button type='submit' className='submit-btn'>
+            {editFlag ? 'Edit' : 'Submit'}
+          </button>
         </form>
         {list.length > 0 && (
           <List
