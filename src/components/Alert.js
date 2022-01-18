@@ -1,13 +1,15 @@
 import React, { useEffect } from 'react';
 
-const Alert = ({ show, color, msg, showAlert, list }) => {
+const Alert = ({ type, msg, showAlert, list }) => {
   useEffect(() => {
     const timeOut = setTimeout(() => {
       showAlert();
     }, 3000);
-    return () => clearTimeout(timeOut);
+    return () => {
+      clearTimeout(timeOut);
+    };
   }, [list]);
-  return <div className={color}>{msg}</div>;
+  return <p className={type}>{msg}</p>;
 };
 
 export default Alert;

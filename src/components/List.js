@@ -2,7 +2,7 @@ import React from 'react';
 import { FiEdit } from 'react-icons/fi';
 import { MdDeleteForever } from 'react-icons/md';
 
-const List = ({ list, clearList }) => {
+const List = ({ list, clearList, deleteItem, editItem }) => {
   return (
     <>
       {list.map((item) => {
@@ -11,10 +11,10 @@ const List = ({ list, clearList }) => {
           <article key={id} className='list-item'>
             <div>{inputValue}</div>
             <div className='button-container'>
-              <button>
+              <button onClick={() => editItem(id)}>
                 <FiEdit />
               </button>
-              <button>
+              <button onClick={() => deleteItem(id)}>
                 <MdDeleteForever />
               </button>
             </div>

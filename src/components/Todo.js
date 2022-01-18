@@ -5,18 +5,30 @@ import Alert from './Alert';
 
 const Todo = () => {
   const [inputValue, setInputValue] = useState('');
-  const [list, setList] = useState([]);
+  const [list, setList] = useState(() => {
+    return localStorage.getItem('list')
+      ? JSON.parse(localStorage.getItem('list'))
+      : [];
+  });
   const [editFlag, setEditFlag] = useState(false);
   const [editID, setEditID] = useState(null);
-  const [alert, setAlert] = useState({ show: false, color: '', msg: '' });
+  const [alert, setAlert] = useState({ show: false, type: '', msg: '' });
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (!inputValue) {
-      console.log('no value');
+      showAlert(true, 'danger', 'Please enter Value');
     } else if (editFlag && inputValue) {
-      console.log('editing');
+      setList(
+        list.map((item) => {
+          if (item.id === editID) {
+            return { ...item, inputValue };
+          }
+          return item;
+        })
+      );
+      showAlert(true, 'success', 'Item edited');
     } else {
       const newItem = {
         id: new Date().getTime().toString(),
@@ -25,18 +37,36 @@ const Todo = () => {
       setList((prev) => {
         return [...prev, newItem];
       });
-      setInputValue('');
       showAlert(true, 'success', 'item added');
     }
   };
 
-  const showAlert = (show = true, color = '', msg = '') => {
-    setAlert({ show, color, msg });
+  const showAlert = (show = false, type = '', msg = '') => {
+    setAlert({ show, type, msg });
   };
 
   const clearList = () => {
     setList([]);
+    showAlert(true, 'danger', 'List cleared');
   };
+
+  const deleteItem = (id) => {
+    setList(list.filter((item) => item.id !== id));
+    showAlert(true, 'danger', 'Item removed');
+  };
+
+  const editItem = (id) => {
+    const editItem = list.filter((item) => item.id === id);
+    setEditID(id);
+    setInputValue(editItem[0].inputValue);
+    setEditFlag(true);
+  };
+
+  useEffect(() => {
+    setEditFlag(false);
+    setInputValue('');
+    localStorage.setItem('list', JSON.stringify(list));
+  }, [list]);
 
   return (
     <StyledDiv>
@@ -49,9 +79,16 @@ const Todo = () => {
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
           />
-          <button type='submit'>Submit</button>
+          <button type='submit'>{editFlag ? 'Edit' : 'Submit'}</button>
         </form>
-        {list.length > 0 && <List list={list} clearList={clearList} />}
+        {list.length > 0 && (
+          <List
+            list={list}
+            clearList={clearList}
+            deleteItem={deleteItem}
+            editItem={editItem}
+          />
+        )}
       </section>
     </StyledDiv>
   );
