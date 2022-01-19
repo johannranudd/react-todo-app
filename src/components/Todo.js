@@ -71,7 +71,7 @@ const Todo = () => {
   return (
     <StyledDiv>
       <section className='wrapper'>
-        {alert.show && <Alert {...alert} showAlert={showAlert} list={list} />}
+        <Alert {...alert} showAlert={showAlert} list={list} />
         <h2>Todo App</h2>
         <form action='' onSubmit={handleSubmit}>
           <input

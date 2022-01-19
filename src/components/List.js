@@ -9,19 +9,25 @@ const List = ({ list, clearList, deleteItem, editItem }) => {
         const { id, inputValue } = item;
         return (
           <article key={id} className='list-item'>
-            <div>{inputValue}</div>
+            <div className='value'>
+              {inputValue.length < 30
+                ? inputValue.toLowerCase()
+                : `${inputValue.substring(0, 34).toLowerCase()}...`}
+            </div>
             <div className='button-container'>
-              <button onClick={() => editItem(id)}>
+              <button className='edit-btn' onClick={() => editItem(id)}>
                 <FiEdit />
               </button>
-              <button onClick={() => deleteItem(id)}>
+              <button className='delete-btn' onClick={() => deleteItem(id)}>
                 <MdDeleteForever />
               </button>
             </div>
           </article>
         );
       })}
-      <button onClick={clearList}>clear</button>
+      <button className='clear-btn' onClick={clearList}>
+        Clear List
+      </button>
     </>
   );
 };
