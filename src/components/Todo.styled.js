@@ -86,10 +86,9 @@ export const StyledDiv = styled.div`
           color: ${colors.deleteBtnColor};
         }
         .read-more-btn {
-          /* transition: 1s; */
+          font-size: 2rem;
         }
         .read-more-btn-rotate {
-          /* transition: 1s; */
           transform: rotate(180deg);
         }
       }
