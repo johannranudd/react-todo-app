@@ -25,15 +25,36 @@ export const fonts = {
   playfair: "'Playfair Display', serif;",
 };
 
-export const device = {
-  mobileS: `(min-width: 320px)`,
-  mobileM: `(min-width: 375px)`,
-  mobileL: `(min-width: 425px)`,
-  tablet: `(min-width: 768px)`,
-  laptop: `(min-width: 1024px)`,
-  laptopL: `(min-width: 1440px)`,
-  desktop: `(min-width: 2560px)`,
+export const size = {
+  mobileS: 320,
+  mobileM: 375,
+  mobileL: 425,
+  mobileXL: 630,
+  tablet: 768,
+  laptop: 1024,
+  laptopL: 1440,
+  desktop: 2560,
 };
+
+export const device = {
+  mobileS: `(max-width: ${size.mobileS}px)`,
+  mobileM: `(max-width: ${size.mobileM}px)`,
+  mobileL: `(max-width: ${size.mobileL}px)`,
+  tablet: `(max-width: ${size.tablet}px)`,
+  laptop: `(max-width: ${size.laptop}px)`,
+  laptopL: `(max-width: ${size.laptopL}px)`,
+  desktop: `(max-width: ${size.desktop}px)`,
+};
+
+// export const device = {
+//   mobileS: `(min-width: 320px)`,
+//   mobileM: `(min-width: 375px)`,
+//   mobileL: `(min-width: 425px)`,
+//   tablet: `(min-width: 768px)`,
+//   laptop: `(min-width: 1024px)`,
+//   laptopL: `(min-width: 1440px)`,
+//   desktop: `(min-width: 2560px)`,
+// };
 
 export const GlobalStyle = createGlobalStyle`
     * {
@@ -44,6 +65,7 @@ export const GlobalStyle = createGlobalStyle`
         font-family: ${fonts.lato};
     }
     body {
+        /* margin: 0; */
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
             'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
             sans-serif;

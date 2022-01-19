@@ -2,8 +2,7 @@ import styled from 'styled-components';
 import { colors, device } from '../App.styles';
 
 export const StyledDiv = styled.div`
-  width: 70%;
-  max-width: 450px;
+  max-width: 550px;
   margin: auto;
   margin-top: 4rem;
   padding: 2rem 2rem 1rem 2rem;
@@ -14,6 +13,7 @@ export const StyledDiv = styled.div`
     box-shadow: ${colors.boxShadow2} 0px 7px 29px 0px;
   }
   .wrapper {
+    width: 100%;
     position: relative;
     h2 {
       margin-top: 0.5rem;
@@ -24,7 +24,7 @@ export const StyledDiv = styled.div`
       justify-content: center;
       margin-bottom: 2rem;
       input {
-        width: 80%;
+        width: 100%;
         background-color: ${colors.lightBlue};
         border-top-left-radius: 3px;
         border-bottom-left-radius: 3px;
@@ -36,7 +36,7 @@ export const StyledDiv = styled.div`
         }
       }
       .submit-btn {
-        width: 5rem;
+        /* width: 5rem; */
         background-color: ${colors.blue};
         border: none;
         border-top-right-radius: 3px;
@@ -56,9 +56,13 @@ export const StyledDiv = styled.div`
       display: flex;
       justify-content: space-between;
       align-items: center;
-      height: 30px;
       transition: 0.3s;
       padding-left: 0.5rem;
+      transition: 0.5s;
+      .value {
+        white-space: nowrap;
+        overflow: hidden;
+      }
       .button-container {
         display: flex;
         button {
@@ -81,7 +85,17 @@ export const StyledDiv = styled.div`
         .delete-btn {
           color: ${colors.deleteBtnColor};
         }
+        .read-more-btn {
+          /* transition: 1s; */
+        }
+        .read-more-btn-rotate {
+          /* transition: 1s; */
+          transform: rotate(180deg);
+        }
       }
+    }
+    .show-list {
+      transition: 0.5s;
     }
 
     .alert {
