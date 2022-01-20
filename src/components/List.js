@@ -35,9 +35,9 @@ const ListItem = ({ inputValue, numberOfChar, editItem, id, deleteItem }) => {
   return (
     <article className='list-item'>
       <div className={showText ? 'show-list' : 'value'}>
-        {inputValue.length < numberOfChar || showText
+        {inputValue.length < 34 || showText
           ? inputValue
-          : `${inputValue.substring(0, numberOfChar)}...`}
+          : `${inputValue.substring(0, 34)}...`}
       </div>
       <div className='button-container'>
         <button
