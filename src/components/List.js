@@ -6,10 +6,6 @@ import { useEffect, useState } from 'react/cjs/react.development';
 import { BiChevronDown, BiChevronUp } from 'react-icons/bi';
 
 const List = ({ list, clearList, deleteItem, editItem }) => {
-  // useEffect(() => {
-
-  // }, [resize, numberOfChar]);
-
   return (
     <>
       {list.map((item) => {
@@ -30,11 +26,15 @@ const List = ({ list, clearList, deleteItem, editItem }) => {
 };
 
 const ListItem = ({ inputValue, editItem, id, deleteItem }) => {
+  const [showText, setShowText] = useState(false);
   return (
     <article className='list-item'>
-      <div className='value'>{inputValue}</div>
+      <div className={showText ? 'show-list' : 'value'}>{inputValue}</div>
       <div className='button-container'>
-        <button className='read-more-btn'>
+        <button
+          className='read-more-btn'
+          onClick={() => setShowText(!showText)}
+        >
           <BiChevronDown />
         </button>
         <button className='edit-btn' onClick={() => editItem(id)}>

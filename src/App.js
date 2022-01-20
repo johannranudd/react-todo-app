@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react/cjs/react.development';
 import { size } from './App.styles';
 
 function App() {
-  // // !test
+  // !test
 
   // const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   // const [numberOfChar, setNumberOfChar] = useState(20);
@@ -26,7 +26,7 @@ function App() {
   //     window.removeEventListener('resize', resize);
   //   };
   // }, [resize, numberOfChar]);
-  // // !test
+  // !test
   return (
     <>
       <GlobalStyle />
