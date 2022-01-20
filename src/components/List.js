@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react/cjs/react.development';
 
 import { BiChevronDown, BiChevronUp } from 'react-icons/bi';
 
-const List = ({ list, clearList, deleteItem, editItem, numberOfChar }) => {
+const List = ({ list, clearList, deleteItem, editItem }) => {
   // useEffect(() => {
 
   // }, [resize, numberOfChar]);
@@ -17,7 +17,6 @@ const List = ({ list, clearList, deleteItem, editItem, numberOfChar }) => {
           <ListItem
             key={item.id}
             {...item}
-            numberOfChar={numberOfChar}
             editItem={editItem}
             deleteItem={deleteItem}
           />
@@ -30,7 +29,7 @@ const List = ({ list, clearList, deleteItem, editItem, numberOfChar }) => {
   );
 };
 
-const ListItem = ({ inputValue, numberOfChar, editItem, id, deleteItem }) => {
+const ListItem = ({ inputValue, editItem, id, deleteItem }) => {
   const [showText, setShowText] = useState(false);
   return (
     <article className='list-item'>
