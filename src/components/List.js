@@ -30,7 +30,6 @@ const List = ({ list, clearList, deleteItem, editItem }) => {
   return (
     <>
       {list.map((item) => {
-        // const { id, inputValue } = item;
         return (
           <ListItem
             key={item.id}

@@ -56,12 +56,20 @@ export const StyledDiv = styled.div`
       display: flex;
       justify-content: space-between;
       align-items: center;
-      transition: 0.3s;
       padding-left: 0.5rem;
+      transition: 0.3s;
       transition: 0.5s;
       .value {
         white-space: nowrap;
         overflow: hidden;
+        padding: 0;
+        transition: 0.5s;
+      }
+      .show-list {
+        overflow-wrap: break-word;
+        width: 70%;
+        padding: 0.5rem 0;
+        transition: 0.5s;
       }
       .button-container {
         display: flex;
@@ -92,9 +100,6 @@ export const StyledDiv = styled.div`
           transform: rotate(180deg);
         }
       }
-    }
-    .show-list {
-      transition: 0.5s;
     }
 
     .alert {
