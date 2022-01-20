@@ -30,19 +30,11 @@ const List = ({ list, clearList, deleteItem, editItem }) => {
 };
 
 const ListItem = ({ inputValue, editItem, id, deleteItem }) => {
-  const [showText, setShowText] = useState(false);
   return (
     <article className='list-item'>
-      <div className={showText ? 'show-list' : 'value'}>
-        {inputValue.length < 34 || showText
-          ? inputValue
-          : `${inputValue.substring(0, 34)}...`}
-      </div>
+      <div className='value'>{inputValue}</div>
       <div className='button-container'>
-        <button
-          className={showText ? 'read-more-btn-rotate' : 'read-more-btn'}
-          onClick={() => setShowText(!showText)}
-        >
+        <button className='read-more-btn'>
           <BiChevronDown />
         </button>
         <button className='edit-btn' onClick={() => editItem(id)}>
@@ -57,3 +49,30 @@ const ListItem = ({ inputValue, editItem, id, deleteItem }) => {
 };
 
 export default List;
+
+// const ListItem = ({ inputValue, editItem, id, deleteItem }) => {
+//   const [showText, setShowText] = useState(false);
+//   return (
+//     <article className='list-item'>
+//       <div className={showText ? 'show-list' : 'value'}>
+//         {inputValue.length < 34 || showText
+//           ? inputValue
+//           : `${inputValue.substring(0, 34)}...`}
+//       </div>
+//       <div className='button-container'>
+//         <button
+//           className={showText ? 'read-more-btn-rotate' : 'read-more-btn'}
+//           onClick={() => setShowText(!showText)}
+//         >
+//           <BiChevronDown />
+//         </button>
+//         <button className='edit-btn' onClick={() => editItem(id)}>
+//           <FiEdit />
+//         </button>
+//         <button className='delete-btn' onClick={() => deleteItem(id)}>
+//           <MdDeleteForever />
+//         </button>
+//       </div>
+//     </article>
+//   );
+// };
