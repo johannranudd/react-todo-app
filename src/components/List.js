@@ -2,7 +2,7 @@ import React from 'react';
 import { FiEdit } from 'react-icons/fi';
 import { MdDeleteForever } from 'react-icons/md';
 import { useEffect, useState } from 'react/cjs/react.development';
-import { size } from '../App.styles';
+
 import { BiChevronDown, BiChevronUp } from 'react-icons/bi';
 
 const List = ({ list, clearList, deleteItem, editItem, numberOfChar }) => {
