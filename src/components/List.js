@@ -5,27 +5,10 @@ import { useEffect, useState } from 'react/cjs/react.development';
 import { size } from '../App.styles';
 import { BiChevronDown, BiChevronUp } from 'react-icons/bi';
 
-const List = ({ list, clearList, deleteItem, editItem }) => {
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-  const [numberOfChar, setNumberOfChar] = useState(20);
+const List = ({ list, clearList, deleteItem, editItem, numberOfChar }) => {
+  // useEffect(() => {
 
-  const resize = () => {
-    setScreenWidth(window.innerWidth);
-  };
-
-  useEffect(() => {
-    setNumberOfChar(() => {
-      if (screenWidth > size.mobileXL) {
-        return 60;
-      } else if (screenWidth > size.mobileL) {
-        return 40;
-      }
-    });
-    window.addEventListener('resize', resize);
-    return () => {
-      window.removeEventListener('resize', resize);
-    };
-  }, [resize, numberOfChar]);
+  // }, [resize, numberOfChar]);
 
   return (
     <>
