@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react/cjs/react.development';
 
 import { BiChevronDown, BiChevronUp } from 'react-icons/bi';
 
-const List = ({ list, clearList, deleteItem, editItem }) => {
+const List = ({ list, clearList, deleteItem, editItem, numberOfChar }) => {
   return (
     <>
       {list.map((item) => {
@@ -15,6 +15,7 @@ const List = ({ list, clearList, deleteItem, editItem }) => {
             {...item}
             editItem={editItem}
             deleteItem={deleteItem}
+            numberOfChar={numberOfChar}
           />
         );
       })}
@@ -25,11 +26,15 @@ const List = ({ list, clearList, deleteItem, editItem }) => {
   );
 };
 
-const ListItem = ({ inputValue, editItem, id, deleteItem }) => {
+const ListItem = ({ inputValue, editItem, id, deleteItem, numberOfChar }) => {
   const [showText, setShowText] = useState(false);
   return (
     <article className='list-item'>
-      <div className={showText ? 'show-list' : 'value'}>{inputValue}</div>
+      <div className={showText ? 'show-list' : 'value'}>
+        {inputValue.length < numberOfChar || showText
+          ? inputValue
+          : `${inputValue.substring(0, numberOfChar)}...`}
+      </div>
       <div className='button-container'>
         <button
           className='read-more-btn'

@@ -3,7 +3,7 @@ import { StyledDiv } from './Todo.styled';
 import List from './List';
 import Alert from './Alert';
 
-const Todo = () => {
+const Todo = ({ numberOfChar }) => {
   const [inputValue, setInputValue] = useState('');
   const [list, setList] = useState(() => {
     return localStorage.getItem('list')
@@ -89,6 +89,7 @@ const Todo = () => {
             clearList={clearList}
             deleteItem={deleteItem}
             editItem={editItem}
+            numberOfChar={numberOfChar}
           />
         )}
       </section>
